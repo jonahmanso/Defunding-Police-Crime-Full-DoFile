@@ -432,7 +432,7 @@ outreg2 using TWFEPlaceboTable.xls, addstat(Observations, e(N), R-squared, e(r2)
 
 
 
-/*SYNTHETIC CONTROLS - change true period to 2021 
+/*SYNTHETIC CONTROLS 
 
 gen dummy = 0  
 replace dummy = 1 if Year >= 2020 & Treatment == 1  
@@ -445,7 +445,7 @@ collapse (mean) OverallCrimeRate Officers, by(PDID Year)
 tsset PDID Year
 
 *Austin (2) 
-synth_runner OverallCrimeRate Officers, trunit(2) trperiod(2021) gen_vars
+synth_runner OverallCrimeRate Officers, trunit(2) trperiod(2020) gen_vars
 
 effect_graphs ,trlinediff(-1) effect_gname(effectAus) tc_gname(Crime_Rate_Synth_Austin)
 
